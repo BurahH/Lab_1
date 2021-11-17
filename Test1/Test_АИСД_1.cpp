@@ -311,27 +311,27 @@ namespace Test_file_Classcpp
 
 		TEST_METHOD(set_Test_standart)
 		{
-			List templist;
-			bool elem = false;
-			templist.push_back(10);
-			templist.push_back(100);
-			templist.push_back(1000);
-			templist.push_back(10000);
-			templist.set(0, 666);
-			Assert::AreEqual(templist.at(0), 666);
-			Assert::AreEqual(templist.at(1), 100);
-			Assert::AreEqual(templist.at(2), 1000);
-			Assert::AreEqual(templist.at(3), 10000);
-			templist.set(3, 13);
-			Assert::AreEqual(templist.at(0), 666);
-			Assert::AreEqual(templist.at(1), 100);
-			Assert::AreEqual(templist.at(2), 1000);
-			Assert::AreEqual(templist.at(3), 13);
-			templist.set(1, 4);
-			Assert::AreEqual(templist.at(0), 666);
-			Assert::AreEqual(templist.at(1), 4);
-			Assert::AreEqual(templist.at(2), 1000);
-			Assert::AreEqual(templist.at(3), 13);
+				List templist;
+				bool elem = false;
+				templist.push_back(10);
+				templist.push_back(100);
+				templist.push_back(1000);
+				templist.push_back(10000);
+				templist.set(0, 666);
+				Assert::AreEqual(templist.at(0), 666);
+				Assert::AreEqual(templist.at(1), 100);
+				Assert::AreEqual(templist.at(2), 1000);
+				Assert::AreEqual(templist.at(3), 10000);
+				templist.set(3, 13);
+				Assert::AreEqual(templist.at(0), 666);
+				Assert::AreEqual(templist.at(1), 100);
+				Assert::AreEqual(templist.at(2), 1000);
+				Assert::AreEqual(templist.at(3), 13);
+				templist.set(1, 4);
+				Assert::AreEqual(templist.at(0), 666);
+				Assert::AreEqual(templist.at(1), 4);
+				Assert::AreEqual(templist.at(2), 1000);
+				Assert::AreEqual(templist.at(3), 13);
 		}
 		TEST_METHOD(set_Test_if_invalid_index)
 		{
@@ -345,6 +345,21 @@ namespace Test_file_Classcpp
 			}
 		}
 	};
+
+	TEST_CLASS(Test_isEmpty)
+	{
+	public:
+
+		TEST_METHOD(isEmpty_Test)
+		{
+			List templist;
+			templist.push_back(10);
+			Assert::AreEqual(templist.isEmpty(), false);
+			templist.clear();
+			Assert::AreEqual(templist.isEmpty(), true);
+		}
+	};
+
 	TEST_CLASS(Test_push_back_list)
 	{
 	public:

@@ -85,7 +85,7 @@ void List::pop_front()       //Removing the first item in the list
 
 void List::insert(int data, size_t index) //adding element by index
 {
-	if ((size > index) or (index < 0))    //Checking for the correctness of the index
+	if ((size > index) && (index >= 0))    //Checking for the correctness of the index
 	{
 		Node* current = head;
 		if (index == 0)
@@ -108,7 +108,7 @@ void List::insert(int data, size_t index) //adding element by index
 
 int List::at(size_t index)    //getting an element by index
 {
-	if ((size > index) or (index < 0))  //Checking for the correctness of the index
+	if ((size > index) && (index >= 0))  //Checking for the correctness of the index
 	{
 		Node* current = head;
 		for (int i = 0; i < index; i++)
@@ -123,7 +123,7 @@ int List::at(size_t index)    //getting an element by index
 
 void List::remove(size_t index)  //deleting an element by index
 {
-	if ((size > index) or (index < 0))   //Checking for the correctness of the index
+	if ((size > index) && (index >= 0))   //Checking for the correctness of the index
 	{
 		Node* current = head;
 		Node* previous = NULL;
@@ -169,7 +169,7 @@ void List::clear()    //removing all list items
 
 void List::set(size_t index, int data)   //replacing the element by index with the passed one element
 {
-	if ((size > index) or (index < 0)) //Checking for the correctness of the index
+	if ((size > index) && (index >= 0)) //Checking for the correctness of the index
 	{
 		Node* temp = new Node(data);
 		Node* current = head;
@@ -181,8 +181,8 @@ void List::set(size_t index, int data)   //replacing the element by index with t
 		}
 		if (previous == NULL)
 		{
-			temp->next = head->next;
 			head = temp;
+			temp->next = current->next;
 			delete(current);
 		}
 		else
